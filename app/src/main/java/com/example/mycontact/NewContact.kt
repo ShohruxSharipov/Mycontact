@@ -55,6 +55,9 @@ class NewContact : Fragment() {
                 parentFragmentManager.beginTransaction().replace(R.id.main,MainWindow()).commit()
             }
         }
+        binding.back.setOnClickListener {
+            requireActivity().onBackPressedDispatcher.onBackPressed()
+        }
         return binding.root
     }
 

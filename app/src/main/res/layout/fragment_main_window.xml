@@ -37,16 +37,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
-    <com.google.android.material.button.MaterialButton
+    <ImageView
         android:id="@+id/add_contact"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        android:text="+"
-        android:backgroundTint="#03A9F4"
-        android:textSize="40sp"
-        app:cornerRadius="90dp"
+        android:background="@drawable/img_2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

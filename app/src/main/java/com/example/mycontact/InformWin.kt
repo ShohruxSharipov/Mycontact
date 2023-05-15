@@ -1,10 +1,15 @@
 package com.example.mycontact
 
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.example.mycontact.Data.Database.AppDatabase
 import com.example.mycontact.Data.Entity.User
 import com.example.mycontact.Dialog.Dialogue
@@ -46,7 +51,7 @@ class InformWin : Fragment() {
         binding.cNumber.text = user.number
 
         binding.edit.setOnClickListener {
-            parentFragmentManager.beginTransaction().replace(R.id.main,EditWindow.newInstance(param1!!)).commit()
+            parentFragmentManager.beginTransaction().replace(R.id.main,EditWindow.newInstance(param1!!)).addToBackStack("edit").commit()
         }
 
         binding.delete.setOnClickListener {
@@ -56,6 +61,9 @@ class InformWin : Fragment() {
 
             parentFragmentManager.beginTransaction().replace(R.id.main,MainWindow()).commit()
             appData.runContact().deleteUser(appData.runContact().getUserById(param1!!))
+        }
+        binding.call.setOnClickListener {
+            openCall(user.number)
         }
 
         return binding.root
@@ -78,5 +86,24 @@ class InformWin : Fragment() {
                     putInt(ARG_PARAM1, param1)
                 }
             }
+    }
+    fun openCall(number: String) {
+        if (ContextCompat.checkSelfPermission(
+                requireContext(),
+                android.Manifest.permission.CALL_PHONE
+            )
+            != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                requireActivity(), arrayOf(android.Manifest.permission.CALL_PHONE),
+                1
+            )
+        } else {
+            if (number.isNotEmpty()) {
+                val callIntent = Intent(Intent.ACTION_CALL)
+                callIntent.data = Uri.parse("tel:$number")
+                activity?.startActivity(callIntent)
+            }
+        }
     }
 }

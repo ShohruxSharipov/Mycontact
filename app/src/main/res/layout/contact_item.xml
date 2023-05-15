@@ -8,10 +8,10 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="98dp"
+        android:layout_width="80dp"
         android:layout_height="91dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/img_1"
+        android:background="@drawable/img"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

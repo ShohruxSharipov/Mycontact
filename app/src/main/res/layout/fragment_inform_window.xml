@@ -10,7 +10,7 @@
         android:id="@+id/imageView3"
         android:layout_width="265dp"
         android:layout_height="239dp"
-        android:src="@drawable/img_1"
+        android:src="@drawable/img"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toStartOf="parent"
@@ -110,18 +110,58 @@
         android:id="@+id/call"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:src="@drawable/img"
+        android:layout_marginEnd="16dp"
+        android:src="@drawable/img_1"
         app:layout_constraintBottom_toBottomOf="@+id/c_number"
         app:layout_constraintEnd_toStartOf="@+id/message"
         app:layout_constraintTop_toTopOf="@+id/c_number" />
 
     <ImageView
         android:id="@+id/message"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:src="@drawable/img_2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/img_3"
         app:layout_constraintBottom_toBottomOf="@+id/c_number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/c_number" />
+
+    <androidx.cardview.widget.CardView
+        android:visibility="invisible"
+        android:layout_width="256dp"
+        android:layout_height="338dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:backgroundTint="#C6090909"
+        app:cardCornerRadius="30dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="O'chirasizmi ???"
+            android:textSize="32sp"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/white"/>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Yoq"
+            android:layout_gravity="end|center"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ha"
+            android:layout_gravity="start|center"/>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
